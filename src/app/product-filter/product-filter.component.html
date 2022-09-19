@@ -1,0 +1,4 @@
+<p>product-filter works!</p>
+<select [(ngModel)]="selectedCategory">
+    <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+</select>

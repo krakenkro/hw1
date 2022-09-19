@@ -1,0 +1,18 @@
+<p>product-list works!</p>
+<select [(ngModel)]="selectedCategory">
+    <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+</select>
+
+<div *ngIf="selectedCategory">
+    <h1>You selected: {{selectedCategory}}</h1>
+    <button (click)="filter()">Фильтровать</button>
+    <div *ngFor="let product of filteredProducts">
+        <app-product-item [product]="product" (remove)="onProductRemove($event)" (notify)="onNotify()"></app-product-item>
+    </div>
+</div>
+<div  *ngIf="!selectedCategory">
+    <div *ngFor="let product of products">
+        <app-product-item [product]="product" (remove)="onProductRemove($event)" (notify)="onNotify()"></app-product-item>
+    </div>
+    
+</div>

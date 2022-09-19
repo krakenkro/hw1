@@ -1,0 +1,16 @@
+<div *ngIf="product">
+    <a href="#" [title]="product.description">
+        <h1>
+            {{product.name | uppercase}}
+        </h1>
+    </a>
+    <p>{{product.price | currency}}</p>
+    <div *ngIf="product.description">
+        <p>{{product.description}}</p>
+    </div>
+    <img [src]="product.image" alt="ss">
+    <button (click)="share()">click</button>
+
+    <button (click)="removeProduct(product.id)">remove</button>
+    <button (click)="notify.emit()">notify</button>
+</div>
